@@ -28,17 +28,19 @@
                 document.getElementById("lbName").textContent = "不可空白";
             }
             else if (NameObj.length < 2) {
-                // let NameObj = new String(NameValue);
                 document.getElementById("lbName").textContent = "至少兩個字";
-
-                for (var i = 0; i <= NameObj.length; i++) {
-                    let ch = NameObj.charCodeAt(i);
-                    if (ch <= 0x4e00 && ch >= 0x9fff)
-                        document.getElementById("lbName").textContent = "請輸入中文";
-                }
             }
             else {
-                ocument.getElementById("lbName").textContent = "輸入正確";
+                for (var i = 0; i < NameObj.length; i++) {
+                    let ch = NameObj.charCodeAt(i);
+                    if (ch < 0x4e00 || ch >0x9fff) {
+                        document.getElementById("lbName").textContent = "請輸入中文";
+                        return;
+                    }
+                    else {
+                        document.getElementById("lbName").textContent = "輸入正確";
+                    }
+                }
             }
         }
         function checkPassword() {
@@ -75,24 +77,24 @@
                 else {
                     document.getElementById("lbPassword").textContent = "不合法的密碼輸入";
                 }
-
             }
-
         }
         function checkDate() {
             let date = document.getElementById("Date").value;
+            a = date.split('/')
+            monthValue = a[1]
+            b = new Date(date).getMonth() + 1;
             if (date == "") {
                 document.getElementById("lbDate").textContent = "請輸入日期";
+               
             }
-            else if (new Date(date).getDate() == date.substring(date.length - 2)) {
+            else if (new Date(date).getMonth()+1 == monthValue) {
                 document.getElementById("lbDate").textContent = "輸入正確";
             }
             else {
                 document.getElementById("lbDate").textContent = "不合法的日期";
             }
         }
-
-
     </script>
 </head>
 <body>
