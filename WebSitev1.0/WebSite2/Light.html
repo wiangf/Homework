@@ -5,29 +5,74 @@
     <title></title>
     <script>
         let stars = document.getElementsByTagName("img");
+        for (let star of stars) {
+            star.style.filter ="grayscale(1)";
+        }
         document.addEventListener("DOMContentLoaded", () => {
-            for (let star of stars) {
-                star.addEventListener("mouseover", mouseover);
-                star.addEventListener("mouseout", mouseout);
-            }
-            //    document.getElementById("star").addEventListener("mouseover", mouseover)
-            //    document.getElementById("star").addEventListener("mouseout", mouseout)
-        })
+            document.getElementById("star0").addEventListener("mouseout", mouseout)
+            document.getElementById("star1").addEventListener("mouseout", mouseout)
+            document.getElementById("star2").addEventListener("mouseout", mouseout)
+            document.getElementById("star3").addEventListener("mouseout", mouseout)
+            document.getElementById("star4").addEventListener("mouseout", mouseout)
 
+            document.getElementById("star0").addEventListener("mouseover", mouseover)
+            document.getElementById("star1").addEventListener("mouseover", mouseover)
+            document.getElementById("star2").addEventListener("mouseover", mouseover)
+            document.getElementById("star3").addEventListener("mouseover", mouseover)
+            document.getElementById("star4").addEventListener("mouseover", mouseover)
+
+            document.getElementById("star0").addEventListener("click", click)
+            document.getElementById("star1").addEventListener("click", click)
+            document.getElementById("star2").addEventListener("click", click)
+            document.getElementById("star3").addEventListener("click", click)
+            document.getElementById("star4").addEventListener("click", click)
+
+        })
         function mouseover() {
-            this.style.filter = "grayscale(0)";
+            if (flag == false) {
+                let starName = (this.id);
+                let length = parseInt(starName.substr(4));
+                for (var i = 0; i <= length; i++) {
+                    document.getElementById(`star${i}`).style.filter = "grayscale(0)"
+                }
+                document.getElementById("describe").textContent = `${length + 1}顆星`;
+
+            }
         }
+        let flag = false;
+        function click() {
+            if (flag == false) {
+                let starName = (this.id);
+                let length = parseInt(starName.substr(4));
+                document.getElementById("describe").textContent = `${length + 1}顆星`;
+                flag = true;
+                for (var i = 0; i <= length; i++) {
+                    document.getElementById(`star${i}`).style.filter = "grayscale(0)"
+                }
+            } else {
+                flag = false;
+                document.getElementById("describe").textContent ="";
+            }
+
+        }
+
         function mouseout() {
-            this.style.filter = "grayscale(1)";
+            if (flag==false) {
+                for (let star of stars) {
+                    star.style.filter = "grayscale(1)";
+                }
+            }
         }
+
 
     </script>
 </head>
 <body>
+    <img id="star0" class="s" src="Images/star.png" width="64" />
     <img id="star1" class="s" src="Images/star.png" width="64" />
     <img id="star2" class="s" src="Images/star.png" width="64" />
     <img id="star3" class="s" src="Images/star.png" width="64" />
     <img id="star4" class="s" src="Images/star.png" width="64" />
-    <img id="star5" class="s" src="Images/star.png" width="64" />
+    <div id="describe"></div>
 </body>
 </html>
