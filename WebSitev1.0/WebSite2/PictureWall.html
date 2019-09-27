@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            document.getElementById("id1").addEventListener("click", selectImage)
+            //document.getElementById("id2").addEventListener("click", selectImage)
+            //document.getElementById("id3").addEventListener("click", selectImage)
+            document.getElementById("id4").addEventListener("click", stopTime)
+        })
+
+        function changeImage() {
+            let productID = parseInt((document.getElementById("img").src).substr(-5,1));
+            if (productID ==3) {
+                document.getElementById("img").src = `Images/1.jpg`;
+            }
+            else {
+                document.getElementById("img").src = `Images/${productID + 1}.jpg`;
+             //   document.getElementById("img").src = `Images/2.jpg`;
+
+            }
+        }
+
+        function selectImage() {
+            document.getElementById("img").src = "Images/1.jpg";
+            //document.getElementById("img").src = "Images/2.jpg";
+            //document.getElementById("img").src = "Images/1.jpg";
+        }
+        var timer = setInterval(changeImage, 1000)
+        flag = true;
+        function stopTime() {
+            if (flag) {
+                clearInterval(timer);
+                this.textContent = "continue";
+                
+            }
+            else {
+                this.textContent = "stop";
+              //  clearInterval(timeInterval);
+                timer = setInterval(changeImage, 1000)
+               
+            }
+            flag=!flag;
+            
+        }
+    </script>
+</head>
+<body>
+    <img id="img" src="Images/1.jpg" /><br/>
+    <label id="id1">1   </label><label id="id1" >2   </label><label id="id1">3   </label><br/>
+    <label id="id4">stop   </label>
+</body>
+</html>

@@ -35,7 +35,7 @@
                 for (var i = 0; i <= length; i++) {
                     document.getElementById(`star${i}`).style.filter = "grayscale(0)"
                 }
-                document.getElementById("describe").textContent = `${length + 1}顆星`;
+                document.getElementById("describe").textContent = `打分中-${length + 1}顆星`;
 
             }
         }
@@ -44,7 +44,7 @@
             if (flag == false) {
                 let starName = (this.id);
                 let length = parseInt(starName.substr(4));
-                document.getElementById("describe").textContent = `${length + 1}顆星`;
+                document.getElementById("describe").textContent = `你給${length + 1}顆星`;
                 flag = true;
                 for (var i = 0; i <= length; i++) {
                     document.getElementById(`star${i}`).style.filter = "grayscale(0)"
@@ -68,6 +68,10 @@
     </script>
 </head>
 <body>
+    <script>
+        for (let star of stars) {
+            star.style.filter = "grayscale(1)";
+    </script>
     <img id="star0" class="s" src="Images/star.png" width="64" />
     <img id="star1" class="s" src="Images/star.png" width="64" />
     <img id="star2" class="s" src="Images/star.png" width="64" />
