@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        let stars = document.getElementsByTagName("img");
+        document.addEventListener("DOMContentLoaded", () => {
+            for (let star of stars) {
+                star.addEventListener("mouseover", mouseover);
+                star.addEventListener("mouseout", mouseout);
+            }
+            //    document.getElementById("star").addEventListener("mouseover", mouseover)
+            //    document.getElementById("star").addEventListener("mouseout", mouseout)
+        })
+
+        function mouseover() {
+            this.style.filter = "grayscale(0)";
+        }
+        function mouseout() {
+            this.style.filter = "grayscale(1)";
+        }
+
+    </script>
+</head>
+<body>
+    <img id="star1" class="s" src="Images/star.png" width="64" />
+    <img id="star2" class="s" src="Images/star.png" width="64" />
+    <img id="star3" class="s" src="Images/star.png" width="64" />
+    <img id="star4" class="s" src="Images/star.png" width="64" />
+    <img id="star5" class="s" src="Images/star.png" width="64" />
+</body>
+</html>
