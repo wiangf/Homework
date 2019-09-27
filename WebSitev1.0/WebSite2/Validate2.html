@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        fieldset {
+            border: green solid;
+            border-radius: 15px;
+        }
+
+        div {
+            margin: 50px
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("Name").addEventListener("blur", checkName)
+            document.getElementById("Password").addEventListener("blur", checkPassword)
+            document.getElementById("Date").addEventListener("blur", checkDate)
+        });
+
+
+        function checkName() {
+            let NameValue = document.getElementById('Name').value;
+            let NameObj = new String(NameValue);
+            if (NameValue == 0) {
+                document.getElementById("lbName").textContent = "不可空白";
+            }
+            else if (NameObj.length < 2) {
+                // let NameObj = new String(NameValue);
+                document.getElementById("lbName").textContent = "至少兩個字";
+
+                for (var i = 0; i <= NameObj.length; i++) {
+                    let ch = NameObj.charCodeAt(i);
+                    if (ch <= 0x4e00 && ch >= 0x9fff)
+                        document.getElementById("lbName").textContent = "請輸入中文";
+                }
+            }
+            else {
+                ocument.getElementById("lbName").textContent = "輸入正確";
+            }
+        }
+        function checkPassword() {
+            let PwdValue = document.getElementById('Password').value;
+            var a = 0; var b = 0; var c = 0
+            if (!PwdValue) {
+                document.getElementById("lbPassword").textContent = "不可空白";
+            }
+            else if (PwdValue.length < 6) {
+                document.getElementById("lbPassword").textContent = "至少六個字";
+            }
+            else {
+                var myReg = /[!@#$%^&*]/;
+                PwdValue = PwdValue.toUpperCase();
+
+                for (var i = 0; i <= PwdValue.length - 1; i++) {
+                    let v = PwdValue.charAt(i);
+                    if (v >= "A" && v <= "Z") {
+                        a = 1;
+                    }
+                    else if (v >= 0 && v <= 9) {
+                        b = 1;
+                    }
+                    else if (myReg.test(PwdValue)) {
+                        c = 1;
+                    }
+                    if (a && b && c) {
+                        break;
+                    }
+                }
+                if (a && b && c) {
+                    document.getElementById("lbPassword").textContent = "輸入正確";
+                }
+                else {
+                    document.getElementById("lbPassword").textContent = "不合法的密碼輸入";
+                }
+
+            }
+
+        }
+        function checkDate() {
+            let date = document.getElementById("Date").value;
+            if (date == "") {
+                document.getElementById("lbDate").textContent = "請輸入日期";
+            }
+            else if (new Date(date).getDate() == date.substring(date.length - 2)) {
+                document.getElementById("lbDate").textContent = "輸入正確";
+            }
+            else {
+                document.getElementById("lbDate").textContent = "不合法的日期";
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>Form Check</legend>
+            姓名:<input id="Name" type="text" /><label id="lbName"></label><br />
+            (1.不可空白，2.至少兩個字以上，3.必須全部為中文字)<hr />
+            密碼:<input id="Password" type="text" /><label id="lbPassword"></label><br />
+            (1.不可空白，2.至少六個字且必須包含英文字母數字與特殊字元)<hr />
+            日期:<input id="Date" type="text" /><label id="lbDate"></label><br />
+            格式:西元年/月/日 yyyy/MM/dd<hr />
+            <input id="Submit1" type="submit" value="submit" onclick="isdate();" />
+            <input id="Reset1" type="reset" value="reset" />
+        </fieldset>
+
+    </div>
+</body>
+</html>
