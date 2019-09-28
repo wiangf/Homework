@@ -35,7 +35,7 @@
                 for (var i = 0; i <= length; i++) {
                     document.getElementById(`star${i}`).style.filter = "grayscale(0)"
                 }
-                document.getElementById("describe").textContent = `打分中-${length + 1}顆星`;
+                document.getElementById("describe").textContent = `打分中=>${length + 1}顆星`;
 
             }
         }
@@ -61,6 +61,8 @@
                 for (let star of stars) {
                     star.style.filter = "grayscale(1)";
                 }
+                document.getElementById("describe").textContent = "";
+
             }
         }
 
