@@ -9,23 +9,28 @@
             star.style.filter ="grayscale(1)";
         }
         document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("star0").addEventListener("mouseout", mouseout)
-            document.getElementById("star1").addEventListener("mouseout", mouseout)
-            document.getElementById("star2").addEventListener("mouseout", mouseout)
-            document.getElementById("star3").addEventListener("mouseout", mouseout)
-            document.getElementById("star4").addEventListener("mouseout", mouseout)
+            for (i = 0; i > 5; i++) {
+                document.getElementById(`star${i}`).addEventListener("mouseout", mouseout);
+                document.getElementById(`star${i}`).addEventListener("mouseover", mouseover);
+                document.getElementById(`star${i}`).addEventListener("click", click)
+            }
+            //document.getElementById("star0").addEventListener("mouseout", mouseout)
+            //document.getElementById("star1").addEventListener("mouseout", mouseout)
+            //document.getElementById("star2").addEventListener("mouseout", mouseout)
+            //document.getElementById("star3").addEventListener("mouseout", mouseout)
+            //document.getElementById("star4").addEventListener("mouseout", mouseout)
 
-            document.getElementById("star0").addEventListener("mouseover", mouseover)
-            document.getElementById("star1").addEventListener("mouseover", mouseover)
-            document.getElementById("star2").addEventListener("mouseover", mouseover)
-            document.getElementById("star3").addEventListener("mouseover", mouseover)
-            document.getElementById("star4").addEventListener("mouseover", mouseover)
+            //document.getElementById("star0").addEventListener("mouseover", mouseover)
+            //document.getElementById("star1").addEventListener("mouseover", mouseover)
+            //document.getElementById("star2").addEventListener("mouseover", mouseover)
+            //document.getElementById("star3").addEventListener("mouseover", mouseover)
+            //document.getElementById("star4").addEventListener("mouseover", mouseover)
 
-            document.getElementById("star0").addEventListener("click", click)
-            document.getElementById("star1").addEventListener("click", click)
-            document.getElementById("star2").addEventListener("click", click)
-            document.getElementById("star3").addEventListener("click", click)
-            document.getElementById("star4").addEventListener("click", click)
+            //document.getElementById("star0").addEventListener("click", click)
+            //document.getElementById("star1").addEventListener("click", click)
+            //document.getElementById("star2").addEventListener("click", click)
+            //document.getElementById("star3").addEventListener("click", click)
+            //document.getElementById("star4").addEventListener("click", click)
 
         })
         function mouseover() {

@@ -3,54 +3,87 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <style>
+        div {
+            overflow:hidden;
+            /*margin: 0 auto;*/ /*使盒子居中*/
+            /*border: solid 3px black;*/
+            text-align: center;
+        }
+        span {
+            font-size: 3em;
+            padding: 0 20px;
+            display: inline-block;
+            border: white solid;
+            background: black;
+        }
+        span:hover{
+            background:orange;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            margin: 0 auto;
+
+            color: white;
+            display: inline-block;
+            text-align: center;
+        }
+        .content label:hover {
+            background-color: #008088;
+            color: aliceblue
+        }
+    </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-
             document.getElementById("id1").addEventListener("click", selectImage)
-            //document.getElementById("id2").addEventListener("click", selectImage)
-            //document.getElementById("id3").addEventListener("click", selectImage)
+            document.getElementById("id2").addEventListener("click", selectImage)
+            document.getElementById("id3").addEventListener("click", selectImage)
             document.getElementById("id4").addEventListener("click", stopTime)
         })
 
         function changeImage() {
-            let productID = parseInt((document.getElementById("img").src).substr(-5,1));
-            if (productID ==3) {
+            let productID = parseInt((document.getElementById("img").src).substr(-5, 1));
+            if (productID == 3) {
                 document.getElementById("img").src = `Images/1.jpg`;
             }
             else {
                 document.getElementById("img").src = `Images/${productID + 1}.jpg`;
-             //   document.getElementById("img").src = `Images/2.jpg`;
-
             }
         }
 
         function selectImage() {
-            document.getElementById("img").src = "Images/1.jpg";
-            //document.getElementById("img").src = "Images/2.jpg";
-            //document.getElementById("img").src = "Images/1.jpg";
+           ImgId= parseInt((this.id).substr(2));
+            document.getElementById("img").src = `Images/${ImgId}.jpg`;
         }
         var timer = setInterval(changeImage, 1000)
         flag = true;
+
         function stopTime() {
             if (flag) {
                 clearInterval(timer);
                 this.textContent = "continue";
-                
             }
             else {
                 this.textContent = "stop";
-              //  clearInterval(timeInterval);
                 timer = setInterval(changeImage, 1000)
-               
             }
-            flag=!flag;
-            
+            flag = !flag;
         }
     </script>
 </head>
 <body>
-    <img id="img" src="Images/1.jpg" /><br/>
-    <label id="id1">1   </label><label id="id1" >2   </label><label id="id1">3   </label><br/>
-    <label id="id4">stop   </label>
+    <div>
+        <img id="img" src="Images/1.jpg" />
+        <br />
+        <div class="content">
+            <span id="id1">1</span>
+            <span id="id2">2</span>
+            <span id="id3">3</span>
+        </div>
+        <br />
+        <label id="id4">stop   </label>
+    </div>
 </body>
 </html>
