@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
     <style>
         div {
-            overflow:hidden;
+            overflow: hidden;
             /*margin: 0 auto;*/ /*使盒子居中*/
             /*border: solid 3px black;*/
             text-align: center;
         }
+
         span {
             font-size: 3em;
             padding: 0 20px;
@@ -17,32 +20,47 @@
             border: white solid;
             background: black;
         }
-        span:hover{
-            background:orange;
-        }
+
+            span:hover {
+                background: orange;
+            }
+
         .content {
             display: flex;
             justify-content: space-between;
-            width: 300px;
+            width: 500px;
             margin: 0 auto;
-
             color: white;
             display: inline-block;
             text-align: center;
         }
-        .content label:hover {
-            background-color: #008088;
-            color: aliceblue
-        }
+
+            .content label:hover {
+                background-color: #008088;
+                color: aliceblue
+            }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("id1").addEventListener("click", selectImage)
-            document.getElementById("id2").addEventListener("click", selectImage)
-            document.getElementById("id3").addEventListener("click", selectImage)
-            document.getElementById("id4").addEventListener("click", stopTime)
-        })
+        //document.addEventListener("DOMContentLoaded", () => {
 
+        //})
+        $(document).ready(function () {
+
+            //document.getElementById("id1").addEventListener("click", selectImage)
+            //document.getElementById("id2").addEventListener("click", selectImage)
+            //document.getElementById("id3").addEventListener("click", selectImage)
+            //document.getElementById("stop").addEventListener("click", stopTime)
+
+            $('#id1').click(selectImage);
+            $('#id2').click(selectImage);
+            $('#id3').click(selectImage);
+            $('#stop').click(stopTime);
+
+        });
+        function previous() {
+            
+
+        }
         function changeImage() {
             let productID = parseInt((document.getElementById("img").src).substr(-5, 1));
             if (productID == 3) {
@@ -54,7 +72,7 @@
         }
 
         function selectImage() {
-           ImgId= parseInt((this.id).substr(2));
+            ImgId = parseInt((this.id).substr(2));
             document.getElementById("img").src = `Images/${ImgId}.jpg`;
         }
         var timer = setInterval(changeImage, 1000)
@@ -78,12 +96,14 @@
         <img id="img" src="Images/1.jpg" />
         <br />
         <div class="content">
+            <span id="previous"><</span>
             <span id="id1">1</span>
             <span id="id2">2</span>
             <span id="id3">3</span>
+            <span id="next">></span>
         </div>
         <br />
-        <label id="id4">stop   </label>
+        <label id="stop">stop</label>
     </div>
 </body>
 </html>

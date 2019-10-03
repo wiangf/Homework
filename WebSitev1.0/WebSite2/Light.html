@@ -3,36 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script>
         let stars = document.getElementsByTagName("img");
         for (let star of stars) {
-            star.style.filter ="grayscale(1)";
+            star.style.filter = "grayscale(1)";
         }
         document.addEventListener("DOMContentLoaded", () => {
-            for (i = 0; i > 5; i++) {
+            for (let i = 0; i < 5; i++) {
                 document.getElementById(`star${i}`).addEventListener("mouseout", mouseout);
                 document.getElementById(`star${i}`).addEventListener("mouseover", mouseover);
                 document.getElementById(`star${i}`).addEventListener("click", click)
             }
-            //document.getElementById("star0").addEventListener("mouseout", mouseout)
-            //document.getElementById("star1").addEventListener("mouseout", mouseout)
-            //document.getElementById("star2").addEventListener("mouseout", mouseout)
-            //document.getElementById("star3").addEventListener("mouseout", mouseout)
-            //document.getElementById("star4").addEventListener("mouseout", mouseout)
-
-            //document.getElementById("star0").addEventListener("mouseover", mouseover)
-            //document.getElementById("star1").addEventListener("mouseover", mouseover)
-            //document.getElementById("star2").addEventListener("mouseover", mouseover)
-            //document.getElementById("star3").addEventListener("mouseover", mouseover)
-            //document.getElementById("star4").addEventListener("mouseover", mouseover)
-
-            //document.getElementById("star0").addEventListener("click", click)
-            //document.getElementById("star1").addEventListener("click", click)
-            //document.getElementById("star2").addEventListener("click", click)
-            //document.getElementById("star3").addEventListener("click", click)
-            //document.getElementById("star4").addEventListener("click", click)
-
         })
+
+
         function mouseover() {
             if (flag == false) {
                 let starName = (this.id);
@@ -41,7 +26,6 @@
                     document.getElementById(`star${i}`).style.filter = "grayscale(0)"
                 }
                 document.getElementById("describe").textContent = `打分中=>${length + 1}顆星`;
-
             }
         }
         let flag = false;
@@ -54,30 +38,29 @@
                 for (var i = 0; i <= length; i++) {
                     document.getElementById(`star${i}`).style.filter = "grayscale(0)"
                 }
-            } else {
+            }
+            else {
                 flag = false;
-                document.getElementById("describe").textContent ="";
+                document.getElementById("describe").textContent = "";
             }
 
         }
 
         function mouseout() {
-            if (flag==false) {
+            if (flag == false) {
                 for (let star of stars) {
                     star.style.filter = "grayscale(1)";
                 }
                 document.getElementById("describe").textContent = "";
-
             }
         }
-
-
     </script>
 </head>
 <body>
     <script>
         for (let star of stars) {
             star.style.filter = "grayscale(1)";
+        }
     </script>
     <img id="star0" class="s" src="Images/star.png" width="64" />
     <img id="star1" class="s" src="Images/star.png" width="64" />
