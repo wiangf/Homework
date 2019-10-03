@@ -55,12 +55,23 @@
             $('#id2').click(selectImage);
             $('#id3').click(selectImage);
             $('#stop').click(stopTime);
+            $('#previous').click(previous);
+            $('#next').click(changeImage);
 
         });
         function previous() {
-            
-
+            let productID = parseInt((document.getElementById("img").src).substr(-5, 1));
+            //pId = parseInt(($('img').src).substr(-5, 1));
+            if (productID == 1) {
+              //  document.getElementById("img").src = `Images/3.jpg`;
+                $('#img').attr ('src','Images/3.jpg');
+            } else {
+               // document.getElementById("img").src = `Images/${productID - 1}.jpg`;
+               // $('#img').attr('src', `Image/${productID - 1}.jpg`);
+                $('#img').attr('src', `Images/${productID - 1}.jpg`);
+            }
         }
+
         function changeImage() {
             let productID = parseInt((document.getElementById("img").src).substr(-5, 1));
             if (productID == 3) {
