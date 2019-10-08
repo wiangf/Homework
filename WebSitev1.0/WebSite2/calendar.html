@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="main.css" rel="stylesheet" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+        var Y = "";
+        var M = "";
+     
+        $(function () {
+            //Year Option
+            for (i = 2010; i <= 2020; i++) {
+                Y += `<option>${i}</option>`;
+            };
+            $("#year").append(Y);
+            //Month Option
+            for (i = 1; i <= 12; i++) {
+                M += `<option>${i}</option>`;
+            };
+            $("#month").append(M);
+            //Day Option
+            $("#year").change(selectDays);
+            $("#month").change(selectDays);
+            $("#day").change(showMessage);
+        });
+
+        function selectDays() {
+            var days = new Date($("#year").val(), $("#month").val(), 0).getDate();
+            var D = "";
+            for (i = 1; i <= days; i++) {
+
+                D += `<option>${i}</option>`;
+            };
+            $("#day").html(D);
+            showMessage()
+        }
+        function showMessage() {
+            message = "日期為" + $("#year").val() + "年" + $("#month").val() + "月" + $("#day").val() + "日";
+            $("div").html(message)
+        }
+
+    </script>
+</head>
+<body>
+    <div class="title">Js作業</div>
+
+    <div class="nav">
+        <div class="nli">99乘法</div>
+        <div class="nli">檢核</div>
+        <div class="nli">星星</div>
+        <div class="nli">日曆</div>
+    </div>
+
+    <div class="content">
+        <select id="year"></select>
+        <select id="month"></select>
+        <select id="day"></select>
+        <div>日期為</div>
+    </div>
+</body>
+</html>
