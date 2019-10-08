@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title>九九乘法表</title>
+    <link href="main.css" rel="stylesheet" />
     <style>
         table {
-            margin-left: 30px;
-            margin-right: 30px;
+
             border: solid #808080;
             border-collapse: collapse;
         }
@@ -26,9 +26,25 @@
     </style>
 </head>
 <body>
+    <div class="title">Js作業</div>
+
+    <div class="nav">
+        <div class="nli">
+            <a href="九九乘法表.html">99乘法</a>
+        </div>
+        <div class="nli">
+            <a href="Validate2.html">檢核</a>
+        </div>
+        <div class="nli">
+            <a href="Light.html">星星</a>
+        </div>
+        <div class="nli">
+            <a href="calendar.html">日曆</a>
+        </div>
+    </div>
     <div class="content">
         <script>
-            document.write("<table>");
+            document.write("<table style='margin:0 auto'>");
             for (let j = 1; j < 10; j++) {
                 document.write("<tr>");
 

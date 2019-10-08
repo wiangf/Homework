@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-
+    <link href="main.css" rel="stylesheet" />
     <style>
         div {
             overflow: hidden;
@@ -63,11 +63,11 @@
             let productID = parseInt((document.getElementById("img").src).substr(-5, 1));
             //pId = parseInt(($('img').src).substr(-5, 1));
             if (productID == 1) {
-              //  document.getElementById("img").src = `Images/3.jpg`;
-                $('#img').attr ('src','Images/3.jpg');
+                //  document.getElementById("img").src = `Images/3.jpg`;
+                $('#img').attr('src', 'Images/3.jpg');
             } else {
-               // document.getElementById("img").src = `Images/${productID - 1}.jpg`;
-               // $('#img').attr('src', `Image/${productID - 1}.jpg`);
+                // document.getElementById("img").src = `Images/${productID - 1}.jpg`;
+                // $('#img').attr('src', `Image/${productID - 1}.jpg`);
                 $('#img').attr('src', `Images/${productID - 1}.jpg`);
             }
         }
@@ -103,19 +103,34 @@
     </script>
 </head>
 <body>
- 
-        <div class="content">
-            <img id="img" src="Images/1.jpg" />
-            <br />
-            <div class="content">
-                <span id="previous"><</span>
-                <span id="id1">1</span>
-                <span id="id2">2</span>
-                <span id="id3">3</span>
-                <span id="next">></span>
-            </div>
-            <br />
-            <label id="stop">stop</label>
+    <div class="title">Js作業</div>
+
+    <div class="nav">
+        <div class="nli">
+            <a href="九九乘法表.html">99乘法</a>
         </div>
+        <div class="nli">
+            <a href="Validate2.html">檢核</a>
+        </div>
+        <div class="nli">
+            <a href="Light.html">星星</a>
+        </div>
+        <div class="nli">
+            <a href="calendar.html">日曆</a>
+        </div>
+    </div>
+    <div class="banner">
+        <img id="img" src="Images/1.jpg" />
+        <br />
+        <div class="content">
+            <span id="previous"><</span>
+            <span id="id1">1</span>
+            <span id="id2">2</span>
+            <span id="id3">3</span>
+            <span id="next">></span>
+        </div>
+        <br />
+        <label id="stop">stop</label>
+    </div>
 </body>
 </html>

@@ -38,7 +38,7 @@
         }
         function showMessage() {
             message = "日期為" + $("#year").val() + "年" + $("#month").val() + "月" + $("#day").val() + "日";
-            $("div").html(message)
+            $(".show").html(message)
         }
 
     </script>
@@ -47,17 +47,25 @@
     <div class="title">Js作業</div>
 
     <div class="nav">
-        <div class="nli">99乘法</div>
-        <div class="nli">檢核</div>
-        <div class="nli">星星</div>
-        <div class="nli">日曆</div>
+        <div class="nli">
+            <a href="九九乘法表.html">99乘法</a>
+        </div>
+        <div class="nli">
+            <a href="Validate2.html">檢核</a>
+        </div>
+        <div class="nli">
+            <a href="Light.html">星星</a>
+        </div>
+        <div class="nli">
+            <a href="calendar.html">日曆</a>
+        </div>
     </div>
 
     <div class="content">
         <select id="year"></select>
         <select id="month"></select>
         <select id="day"></select>
-        <div>日期為</div>
+        <div class="show">日期為</div>
     </div>
 </body>
 </html>

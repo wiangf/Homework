@@ -3,14 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link href="main.css" rel="stylesheet" />
     <style>
         fieldset {
             border: green solid;
             border-radius: 15px;
-        }
-
-        div {
-            margin: 50px
         }
     </style>
     <script>
@@ -33,7 +30,7 @@
             else {
                 for (var i = 0; i < NameObj.length; i++) {
                     let ch = NameObj.charCodeAt(i);
-                    if (ch < 0x4e00 || ch >0x9fff) {
+                    if (ch < 0x4e00 || ch > 0x9fff) {
                         document.getElementById("lbName").textContent = "請輸入中文";
                         return;
                     }
@@ -86,9 +83,9 @@
             b = new Date(date).getMonth() + 1;
             if (date == "") {
                 document.getElementById("lbDate").textContent = "請輸入日期";
-               
+
             }
-            else if (new Date(date).getMonth()+1 == monthValue) {
+            else if (new Date(date).getMonth() + 1 == monthValue) {
                 document.getElementById("lbDate").textContent = "輸入正確";
             }
             else {
@@ -98,9 +95,24 @@
     </script>
 </head>
 <body>
-    
+    <div class="title">Js作業</div>
+
+    <div class="nav">
+        <div class="nli">
+            <a href="九九乘法表.html">99乘法</a>
+        </div>
+        <div class="nli">
+            <a href="Validate2.html">檢核</a>
+        </div>
+        <div class="nli">
+            <a href="Light.html">星星</a>
+        </div>
+        <div class="nli">
+            <a href="calendar.html">日曆</a>
+        </div>
+    </div>
     <div class="content">
-        <fieldset>
+        <fieldset style="text-align:start">
             <legend>Form Check</legend>
             姓名:<input id="Name" type="text" /><label id="lbName"></label><br />
             (1.不可空白，2.至少兩個字以上，3.必須全部為中文字)<hr />
